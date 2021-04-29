@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
+  const firstName = 'dagowask';
+  const lastName = 'dev';
+  const age = 26;
+  const jobs = 'Front End Master';
+
+  const mArr = [1, 2, 3, 4];
+  const mObj = {
+    nameObj: "dagsdago",
+    ageObj: 27
+  }
+
+  const inputPlaceHolder = 'Enter Your Details';
+
+  const getFullName = (firstName, lastName) => {
+    return `${firstName} ${lastName}`
+  }
+
+  const detailsInputBox = <input placeholder={inputPlaceHolder} autoComplete />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" align="center">
+      <h3>Full Name: {getFullName(firstName, lastName)}</h3>
+      <p>Age: {mObj.ageObj}</p>
+      <p>Jobs: {jobs}</p>
+      {mArr[0]}
+      {mArr[0] > 0 ? "True" : "False"}
+      {/* {detailsInputBox} */}
     </div>
   );
 }
