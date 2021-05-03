@@ -1,31 +1,41 @@
+import React from 'react';
+import BlogCard from './BlogCard';
+
+import './App.css';
+
 function App() {
-  const firstName = 'dagowask';
-  const lastName = 'dev';
-  const age = 26;
-  const jobs = 'Front End Master';
-
-  const mArr = [1, 2, 3, 4];
-  const mObj = {
-    nameObj: "dagsdago",
-    ageObj: 27
+  const blogArr = [{
+    id: 1,
+    title: 'Blog Title 1',
+    description: 'Lorem Ipsum Dolor Kolor Dokor Mondor'
+  },
+  {
+    id: 2,
+    title: 'Blog Title 2',
+    description: 'Lorem Ipsum Dolor Kolor Dokor Mondor'
+  },
+  {
+    id: 3,
+    title: 'Blog Title 3',
+    description: 'Lorem Ipsum Dolor Kolor Dokor Mondor'
   }
+  ]
 
-  const inputPlaceHolder = 'Enter Your Details';
+  const blogCards = blogArr.map((item, pos) => {
+    console.log(item);
 
-  const getFullName = (firstName, lastName) => {
-    return `${firstName} ${lastName}`
-  }
-
-  const detailsInputBox = <input placeholder={inputPlaceHolder} autoComplete />;
+    return (
+      <BlogCard className={'Blog'} key={pos} item={item.title} description={item.description} id={item.id} />
+      // <div className="BlogCard" key={item.id}>
+      //   <h3>{item.title}</h3>
+      //   <p>{item.description}</p>
+      // </div>
+    )
+  })
 
   return (
-    <div className="App" align="center">
-      <h3>Full Name: {getFullName(firstName, lastName)}</h3>
-      <p>Age: {mObj.ageObj}</p>
-      <p>Jobs: {jobs}</p>
-      {mArr[0]}
-      {mArr[0] > 0 ? "True" : "False"}
-      {/* {detailsInputBox} */}
+    <div className="App">
+      {blogCards}
     </div>
   );
 }
